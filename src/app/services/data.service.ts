@@ -23,8 +23,19 @@ export class DataService {
    getQuestions(){
      return this.questions;
    }
-    addQuestion(question:Question){
+   addQuestion(question:Question){
       this.questions.unshift(question);
     }
-
+   removeQuestion(question:Question){
+     console.log("removing " + question.text);
+     for(let i=0;i < this.questions.length;i++)
+      {
+          if(question.text ==  this.questions[i].text)
+            {
+              console.log("found match" + this.questions[i].text + " " + i);
+              
+              this.questions.splice(i,1);
+            }
+      }
+   }
 }
